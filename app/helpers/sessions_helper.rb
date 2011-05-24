@@ -32,6 +32,11 @@ module SessionsHelper
     user == current_user
   end
   
+  def authenticate
+   deny_access unless signed_in?
+  end
+  
+  
   private
 
     def user_from_remember_token

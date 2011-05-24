@@ -1,5 +1,27 @@
-<h1></h1>
-<p>
-  Welcome. <a href="http://itunes.apple.com/sn/app/flickrjuice/id424477518?mt=8/">FlickrJuice</a> is your perfect Flickr! companion on mobile devices</p>
+
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">What's up?</h1>
+        <%= render 'shared/micropost_form' %>
+		<%= render 'shared/feed'%>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>FlickrJuice!</h1>
+
+  <p>
+    Welcome to 
+    <a href="#">FlickrJuice!</a>
+    the world's best Flickr! app for iPhone. 
+  </p>
+
+  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>
 
 <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
